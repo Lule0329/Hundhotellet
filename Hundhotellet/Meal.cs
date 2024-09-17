@@ -11,5 +11,12 @@ namespace Hundhotellet
         public int hourOfDay;
         public string foodType;
         public string amount;
+
+        public Meal(int hr, string ft, string am) 
+        { 
+            hourOfDay = hr;
+            foodType = ft;
+            amount = am;
+        }
     }
 }
