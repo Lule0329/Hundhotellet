@@ -18,5 +18,10 @@ namespace Hundhotellet
             foodType = ft;
             amount = am;
         }
+
+        public override string ToString()
+        {
+            return $"{amount} of {foodType} kl {hourOfDay}";
+        }
     }
 }

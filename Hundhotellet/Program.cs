@@ -29,13 +29,13 @@ namespace Hundhotellet
             Meal testMeal2 = new Meal(9, "Meal2", "20kg");
             Visit visit1 = new Visit(date1, date2);
             Visit visit2 = new Visit(date2, date1);
-            Dog testDog1 = new Dog("fido", "123456", testOwner1, testMeal1, visit1);
-            Dog testDog2 = new Dog("lassie", "654321", testOwner2, testMeal2, visit2);
+            Dog testDog1 = new Dog("fido", "123456", testOwner1, visit1);
+            Dog testDog2 = new Dog("lassie", "654321", testOwner2, visit2);
             dogHotel.SetDog(2, testDog1);
             dogHotel.SetDog(5, testDog2);
-
             testDog1.AddMeal(testMeal1);
-            testDog1.AddMeal(testMeal2);
+            testDog2.AddMeal(testMeal2);
+            testDog2.AddMeal(testMeal1);
         }
     }
 }

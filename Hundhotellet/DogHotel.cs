@@ -10,6 +10,8 @@ namespace Hundhotellet
     internal class DogHotel
     {
         public Dog[] dogArray = new Dog[9];
+        double costPerNight = 300;
+        Dictionary<int, Booking> bookingDict = new Dictionary<int, Booking>();
 
         public void SetDog(int cageNumber, Dog dog)
         {
@@ -31,11 +33,11 @@ namespace Hundhotellet
 
                 if (dogArray[i] != null)
                 {
-                    dogArray[i].mealList. // HÄR <----------------------------------------------------------------------------------
+                    temp = $"Crate {i}: {string.Join(" | ", dogArray[i].mealList)}";
                 }
                 else if (dogArray[i] == null)
                 {
-                    temp = $"Crate {i}: null";
+                    temp = $"Crate {i}: Empty";
                 }
                 
                 Console.WriteLine(temp);
@@ -64,6 +66,23 @@ namespace Hundhotellet
                 Console.WriteLine(temp);
             }
         }
+
+        void PrintInvoice(int cageNumber)
+        {
+            Console.WriteLine(" ");
+            Console.WriteLine("------------ Fakturor ------------");
+
+            if (dogArray[cageNumber] != null)
+            {
+                Dog d = dogArray[cageNumber];
+                Console.WriteLine($"Dog: {d.name} | " +
+                    $"ID: {d.chipNumber} | " +
+                    $"Time: {d.visit.dropoffTime.Hour}.00 to {d.visit.pickupTime.Hour}.00 | " +
+                    $"Owner: {d.owner.firstName} {d.owner.lastName} | " +
+                    $"Adress: {d.owner.adress.stad}, {d.owner.adress.gatuAdress}, {d.owner.adress.postNummer} | " +
+                    $"Final Cost: {(costPerNight * (d.visit.pickupTime.Hour - d.visit.dropoffTime.Hour)) / 2}");
+            }
+        }
         
         public void PrintInfo()
         {
@@ -81,6 +100,7 @@ namespace Hundhotellet
 
             PrintFeedingSchedule();
             PrintPickups();
+            PrintInvoice(2);
         }
     }
 }
