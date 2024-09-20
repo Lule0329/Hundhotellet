@@ -31,6 +31,7 @@ namespace Hundhotellet
             Visit visit2 = new Visit(date2, date1);
             Dog testDog1 = new Dog("fido", "123456", testOwner1, visit1);
             Dog testDog2 = new Dog("lassie", "654321", testOwner2, visit2);
+            Booking booking1 = new Booking(testDog1, 1, date1, date2);
             dogHotel.SetDog(2, testDog1);
             dogHotel.SetDog(5, testDog2);
             testDog1.AddMeal(testMeal1);

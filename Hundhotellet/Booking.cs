@@ -8,9 +8,17 @@ namespace Hundhotellet
 {
     internal class Booking
     {
-        Dog dog;
-        int cageNumber;
-        DateTime dropOffTime;
-        DateTime PickUpTime;
+        public Dog dog;
+        public int cageNumber;
+        public DateTime dropOffTime;
+        public DateTime PickUpTime;
+
+        public Booking(Dog dog, int cageNumber, DateTime dropOffTime, DateTime pickUpTime)
+        {
+            this.dog = dog;
+            this.cageNumber = cageNumber;
+            this.dropOffTime = dropOffTime;
+            this.PickUpTime = pickUpTime;
+        }
     }
 }

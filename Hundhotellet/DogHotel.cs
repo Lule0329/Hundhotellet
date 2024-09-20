@@ -11,6 +11,7 @@ namespace Hundhotellet
     {
         public Dog[] dogArray = new Dog[9];
         double costPerNight = 300;
+        
         Dictionary<int, Booking> bookingDict = new Dictionary<int, Booking>();
 
         public void SetDog(int cageNumber, Dog dog)
@@ -21,6 +22,37 @@ namespace Hundhotellet
         public Dog GetDog(int cageNumber)
         {
             return null;
+        }
+
+        bool CheckBookig(Booking booking)
+        {
+            return true;
+        }
+
+        int AddBooking(Booking booking)
+        {
+            bookingDict.Add(1, booking);
+
+            return 1;
+        }
+
+        bool RemoveBooking(Booking booking)
+        {
+            return false;
+        }
+
+        void PrintBookings()
+        {
+            Console.WriteLine(" ");
+            Console.WriteLine("------------ Bookings ------------");
+
+            foreach (var key in bookingDict)
+            {
+                Console.WriteLine($"{key.Key} | " +
+                    $"{key.Value.dog.name} | " +
+                    $"{key.Value.dropOffTime.Hour}.00 - {key.Value.PickUpTime.Hour}.00 | " +
+                    $"{key.Value.dog.owner.firstName} {key.Value.dog.owner.firstName}");
+            }
         }
 
         public void PrintFeedingSchedule()
@@ -101,6 +133,7 @@ namespace Hundhotellet
             PrintFeedingSchedule();
             PrintPickups();
             PrintInvoice(2);
+            PrintBookings();
         }
     }
 }
