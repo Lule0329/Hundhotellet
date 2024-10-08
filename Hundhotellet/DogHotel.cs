@@ -10,7 +10,7 @@ namespace Hundhotellet
     internal class DogHotel
     {
         public Dog[] dogArray = new Dog[9];
-        double costPerNight = 300;
+        const double costPerNight = 300;
         
         Dictionary<int, Booking> bookingDict = new Dictionary<int, Booking>();
 
